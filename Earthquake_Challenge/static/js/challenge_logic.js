@@ -28,11 +28,11 @@ let baseMaps = {
   "Satellite": satelliteStreets
 };
 
-// 1. Add a 2nd layer group for the tectonic plate data.
+// Add a 2nd layer group for the tectonic plate data.
 let allEarthquakes = new L.LayerGroup();
 let tectonicPlateData = new L.LayerGroup();
 
-// 2. Add a reference to the tectonic plates group to the overlays object.
+// Add a reference to the tectonic plates group to the overlays object.
 let overlays = {
   "Earthquakes": allEarthquakes,
   "Tectonic Plates": tectonicPlateData
@@ -141,10 +141,10 @@ legend.onAdd = function() {
   legend.addTo(map);
 
 
-  // 3. Use d3.json to make a call to get our Tectonic Plate geoJSON data.
-  d3.json("https://github.com/fraxen/tectonicplates/blob/master/GeoJSON/PB2002_boundaries.json").then(function(data) {
+  // Use d3.json to make a call to get our Tectonic Plate geoJSON data.
+  d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function(data) {
     L.geoJson(data, {
-      color: "red",
+      color: "blue",
       weight: 2
     }).addTo(tectonicPlateData);
   });
